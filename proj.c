@@ -17,6 +17,24 @@ struct Nod *Nod_nou(int key)
 	return nod;
 }
 
+//afisarea arborelui pe nivele
+void afisare(struct Nod *nod, int nivel)
+{
+	int i;
+
+	if(nod != NULL)
+	{
+		afisare(nod->drept, nivel+1);
+
+		for(i=0; i<nivel; i++)
+			printf("	");
+
+		printf("%d\n", nod->key);
+
+		afisare(nod->stang, nivel+1);
+	}
+}
+
 int main()
 {
 	//definirea unui arbore
@@ -62,9 +80,9 @@ int main()
 	*/
 
 	//afisarea valorilor nodurilor
-	printf("Radacina: %d\n", radacina->key);
-	printf("Subarborele stang al radacinii: %d\n", radacina->stang->key);
-	printf("Subarborele drept al radacinii: %d\n", radacina->drept->key);
+	
+	afisare(radacina, 0);
+	
 
 	return 0;
 }

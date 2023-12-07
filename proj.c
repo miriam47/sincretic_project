@@ -17,6 +17,21 @@ struct Nod *Nod_nou(int key)
 	return nod;
 }
 
+//functie pentru parcurgerea in inordine a arborelui
+void preordine(struct Nod* nod)
+{
+	if(nod != NULL)
+	{
+		printf("%d", nod->key);
+
+		//traversarea subarborelui stang
+		preordine(nod->stang);
+
+		//traversarea subarborelui drept
+		preorder(nod->drept);
+	}
+}
+
 //afisarea arborelui pe nivele
 void afisare(struct Nod *nod, int nivel)
 {

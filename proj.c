@@ -29,7 +29,8 @@ void afisare(struct Nod *nod, int nivel)
 		for(i=0; i<nivel; i++)
 			printf("	");
 
-		printf("%d\n", nod->key);
+		if(nod != NULL)
+			printf("%d\n", nod->key);
 
 		afisare(nod->stang, nivel+1);
 	}

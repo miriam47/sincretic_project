@@ -17,6 +17,19 @@ struct Nod *Nod_nou(int key)
 	return nod;
 }
 
+//functie pentru parcurgerea in inordine a arborelui
+void inordine(struct Nod* nod, int *vector, int *n)
+{
+	if(nod != NULL)
+	{
+		inordine(nod->stang, vector, n);
+		vector[*n] = nod->key;
+		(*n)++;
+
+		inordine(nod->drept, vector, n);
+	}
+}
+
 //functie pentru parcurgerea in preordine a arborelui
 void preordine(struct Nod* nod)
 {
@@ -28,11 +41,11 @@ void preordine(struct Nod* nod)
 		preordine(nod->stang);
 
 		//traversarea subarborelui drept
-		preorder(nod->drept);
+		preordine(nod->drept);
 	}
 }
 
-//afisarea arborelui pe nivele + functie de parcurgere in inordine
+//afisarea arborelui pe nivele
 void afisare(struct Nod *nod, int nivel)
 {
 	int i;
@@ -96,9 +109,24 @@ int main()
 
 	//afisarea valorilor nodurilor
 	
-	printf("Traversare in inordine: \n");
+	printf("Afisare arbore: \n");
 	afisare(radacina, 0);
-	
+
+	int vector[100]; //folosit pentru a stoca valorile din arborele care este parcurs in inordine
+	int n = 0;	//nr de elemente (dupa ce se va apela functia, se va stoca in n nr de elemente din arbore)
+	int i;
+
+	inordine(radacina, vector, &n);
+
+	printf("Parcurgerea in inordine: \n");
+	for(i=0; i<n; i++)
+		printf("%d ", vector[i]);
+	printf("\n\n");
+
+
+	printf("Parcurgere in preordine: \n");
+	preordine(radacina);
+
 
 	return 0;
 }

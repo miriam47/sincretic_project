@@ -60,6 +60,22 @@ void postordine(struct Nod* nod)
 	}
 }
 
+
+
+//functia de parcurgere pe nivele a arborelui
+void p_nivele(struct Nod* nod)
+{
+	if(nod == NULL)
+		return;
+
+	//se foloseste o coada(structura de date/vector de pointeri)
+	//se foloseste coada pentru a memora nodurile in ordinea in care trebuie procesate
+	struct Nod **coada = (struct Nod **)malloc(sizeof(struct Nod *) * 100);
+	
+}
+
+
+
 //afisarea arborelui pe nivele
 void afisare(struct Nod *nod, int nivel)
 {

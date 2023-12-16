@@ -45,6 +45,21 @@ void preordine(struct Nod* nod)
 	}
 }
 
+//functie pentru parcurgerea arborelui in postordine
+void postordine(struct Nod* nod)
+{
+	if(nod != NULL)
+	{
+		//aici se traverseaza partea stanga a radacinii (subarborelui stang)
+		postordine(nod->stang);
+
+		//aici se traverseaza partea dreapta
+		postordine(nod->drept);
+
+		printf("%d ", nod->key);
+	}
+}
+
 //afisarea arborelui pe nivele
 void afisare(struct Nod *nod, int nivel)
 {
@@ -127,6 +142,9 @@ int main()
 	printf("Parcurgere in preordine: \n");
 	preordine(radacina);
 
+
+	printf("\nParcurgere in postordine: \n");
+	postordine(radacina);
 
 	return 0;
 }

@@ -72,6 +72,26 @@ void p_nivele(struct Nod* nod)
 	//se foloseste coada pentru a memora nodurile in ordinea in care trebuie procesate
 	struct Nod **coada = (struct Nod **)malloc(sizeof(struct Nod *) * 100);
 	
+	int start = -1, stop = -1;
+
+	//radacina este adaugata in coada
+	coada[++stop] = nod;
+
+	while(start != stop)
+	{
+		//se extrage un nod din coada si se afiseaza cheia
+		struct Nod *nod_curent = coada[++start];
+		printf("%d ", nod_curent->key);
+
+		//aici se adauga fii nodului curent in coada
+		if(nod_curent->stang != NULL)
+			coada[++stop] = nod_curent->stang;
+
+		if(nod_curent->drept != NULL)
+			coada[++stop] = nod_curent->drept;
+	}
+
+	free(coada);
 }
 
 
@@ -161,6 +181,9 @@ int main()
 
 	printf("\nParcurgere in postordine: \n");
 	postordine(radacina);
+
+	printf("\nParcurgere pe nivele: \n");
+	p_nivele(radacina);
 
 	return 0;
 }

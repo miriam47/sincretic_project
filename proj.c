@@ -179,10 +179,10 @@ int main()
 	preordine(radacina);
 
 
-	printf("\nParcurgere in postordine: \n");
+	printf("\n\nParcurgere in postordine: \n");
 	postordine(radacina);
 
-	printf("\nParcurgere pe nivele: \n");
+	printf("\n\nParcurgere pe nivele: \n");
 	p_nivele(radacina);
 
 	return 0;

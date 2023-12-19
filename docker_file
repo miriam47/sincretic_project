@@ -1,5 +1,6 @@
+
 FROM gcc:latest
-WORKDIR /usr/src/proj
+WORKDIR C:/Users/Miri/Desktop/Proiect_sincretic/sincretic_project/proj
 COPY proj.c .
-RUN gcc -o proj proj.c -lstdc
+RUN gcc -o proj proj.c
 CMD ["./proj"]

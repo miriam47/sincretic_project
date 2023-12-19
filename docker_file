@@ -1,5 +1,5 @@
 FROM gcc:latest
-WORKDIR /usr/src/proj
+WORKDIR C:/Users/Miri/Desktop/Proiect_sincretic/sincretic_project/docker_file
 COPY proj.c .
 RUN gcc -o proj proj.c -lstdc
 CMD ["./proj"]

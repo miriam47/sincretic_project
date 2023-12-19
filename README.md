@@ -1,6 +1,6 @@
 # sincretic_project
 
-//Traversing a tree in disorder, preorder and postorder; program in C.
+//Traversing a tree in disorder, preorder, postorder and on levels; program in C.
 
 Parcurgerea unui arbore in inordine, preordine si postordine.
 
